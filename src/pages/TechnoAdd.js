@@ -1,14 +1,28 @@
-import React from "react";
+const TechnoAdd = (props) => {
 
-const TechnoAdd = () => {
+  const { handleAddTechno } = props;
+  
+  const techno = {
+    name: 'React',
+    category: 'front',
+    description: 'Learn React'
+  }
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    handleAddTechno(techno);
+  }
+
   return (
     <div className="techno-add">
       <h1>Add a Techno</h1>
-      <form>
+      <form onSubmit={(evt) => handleSubmit(evt)}>
+
         <label htmlFor="techno-name">Name:</label>
         <br />
         <input type="text" name="techno-name" id="techno-name" />
         <br />
+
         <label htmlFor="techno-category">Category:</label>
         <br />
         <select name="techno-category" id="techno-category">
@@ -19,6 +33,7 @@ const TechnoAdd = () => {
           <option value="other">Other</option>
         </select>
         <br />
+
         <label htmlFor="techno-descriptiony">Description:</label>
         <br />
         <textarea
@@ -27,8 +42,9 @@ const TechnoAdd = () => {
           cols="30"
           rows="10"
         ></textarea>
+
         <br />
-        <input type="submit" value="Add Techno" />
+        <input type="submit" value="Add Techno" className="btn"/>
       </form>
     </div>
   );

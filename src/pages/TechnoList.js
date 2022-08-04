@@ -1,5 +1,3 @@
-import React from 'react';
-
 const TechnoList = () => {
     return (
         <div className='techno-list'>
